@@ -11,4 +11,18 @@ router
     res.render('response', { title: 'simple express app', email, password });
   });
 
+router.get('/setcookie', (req, res, next) => {
+  res.cookie('my_cookie', 'Hello World!');
+  res.cookie('my_signed_cookie', 'Hello Universe!', { signed: true });
+  res.redirect('/');
+});
+
+router.get('/clearcookie', (req, res, nex) => {
+  console.log(req.cookies['my_cookie']);
+  console.log(req.signedCookies['my_signed_cookie']);
+  res.clearCookie('my_cookie');
+  res.clearCookie('my_signed_cookie');
+  res.redirect('/');
+});
+
 module.exports = router;
