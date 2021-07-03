@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EJS compilation demo</title>
+  </head>
+  <body>
+    <% function userView(user, i) { %>
+    <tr>
+      <td><%= i %></td>
+      <td><%= user.name %></td>
+      <td><%= user.age %></td>
+      <td><%= user.species %></td>
+    </tr>
+    <% } %>
+    <table border="2">
+      <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Age</td>
+        `
+        <td>Species</td>
+      </tr>
+      <% users.map(userView) %>
+    </table>
+  </body>
+</html>
