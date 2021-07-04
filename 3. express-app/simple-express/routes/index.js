@@ -3,8 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router
-  .get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
+  .get('/', (req, res, next) => {
+    res.session.views = res.session.views === void 0 ? 0 : ++res.session.views;
+    res.render('index', { title: 'Express', views: req.session.views });
   })
   .post('/login', (req, res, next) => {
     const { email, password } = req.body;
