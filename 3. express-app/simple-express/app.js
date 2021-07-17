@@ -26,7 +26,7 @@ app.use('/users', usersRouter);
 app.use(
   require('express-session')({
     resave: false,
-    saveUnintialized: false,
+    saveUninitialized: false,
     secret: process.env.SECRET_KEY,
   }),
 );

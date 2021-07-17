@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router
   .get('/', (req, res, next) => {
-    res.session.views = res.session.views === void 0 ? 0 : ++res.session.views;
-    res.render('index', { title: 'Express', views: req.session.views });
+    req.session.views = req.session.views === 0 ? 0 : ++req.session.views;
+    res.render('index', { title: 'Simple express app', views: req.session.views });
   })
   .post('/login', (req, res, next) => {
     const { email, password } = req.body;
