@@ -11,6 +11,7 @@ const app = express();
 app.use(cors());
 
 app.use('/api/v1/products/', api.products);
+app.use('/api/v1/categories/', api.categories);
 
 app.use((_, res) => {
   res.status(404).json({
